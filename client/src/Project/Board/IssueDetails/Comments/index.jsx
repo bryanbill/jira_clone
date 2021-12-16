@@ -12,16 +12,19 @@ const propTypes = {
   fetchIssue: PropTypes.func.isRequired,
 };
 
-const ProjectBoardIssueDetailsComments = ({ issue, fetchIssue }) => (
-  <Comments>
-    <Title>Comments</Title>
-    <Create issueId={issue.id} fetchIssue={fetchIssue} />
+const ProjectBoardIssueDetailsComments = ({ issue, fetchIssue }) => {
 
-    {sortByNewest(issue.comments, 'createdAt').map(comment => (
-      <Comment key={comment.id} comment={comment} fetchIssue={fetchIssue} />
-    ))}
-  </Comments>
-);
+  return (
+    <Comments>
+      <Title>Comments</Title>
+      <Create issueId={issue.id} fetchIssue={fetchIssue} />
+
+      {sortByNewest(issue.comments, 'createdAt').map(comment => (
+        <Comment key={comment.id} comment={comment} fetchIssue={fetchIssue} />
+      ))}
+    </Comments>
+  );
+};
 
 ProjectBoardIssueDetailsComments.propTypes = propTypes;
 

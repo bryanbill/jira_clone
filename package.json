@@ -17,5 +17,7 @@
       "pre-commit": "npm run pre-commit"
     }
   },
-  "dependencies": {}
+  "dependencies": {
+    "js-cookie": "^3.0.1"
+  }
 }
