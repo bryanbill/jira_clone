@@ -42,8 +42,7 @@ const initializeExpress = (): void => {
 };
 
 const initializeApp = async (): Promise<void> => {
-  await establishDatabaseConnection();
-  initializeExpress();
+  await establishDatabaseConnection().then(initializeExpress);
 };
 
 initializeApp();
