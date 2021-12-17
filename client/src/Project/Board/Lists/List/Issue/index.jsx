@@ -17,7 +17,7 @@ const ProjectBoardListIssue = ({ projectUsers, issue, index }) => {
   const match = useRouteMatch();
 
   const assignees = issue.userIds.map(userId => projectUsers.find(user => user.id === userId));
-
+  console.log(issue);
   return (
     <Draggable draggableId={issue.id.toString()} index={index}>
       {(provided, snapshot) => (

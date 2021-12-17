@@ -5,13 +5,10 @@ import toast from 'shared/utils/toast';
 import { objectToQueryString } from 'shared/utils/url';
 import { getStoredAuthToken, removeStoredAuthToken } from 'shared/utils/authToken';
 
-import Cookies from 'js-cookie';
-const cookie_value = Cookies.get('soloo_arena');
 const defaults = {
   baseURL: 'http://localhost:4041/v1',
   headers: () => ({
     'Content-Type': 'application/json',
-    Authorization: `Bearer ${cookie_value}`,
   }),
   error: {
     code: 'INTERNAL_ERROR',
@@ -23,7 +20,6 @@ const defaults = {
 
 const api = (method, url, variables) =>
   new Promise((resolve, reject) => {
-    console.log(cookie_value);
     axios({
       url: `${defaults.baseURL}${url}`,
       method,
